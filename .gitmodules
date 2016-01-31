@@ -1,0 +1,3 @@
+[submodule "node-homeseer"]
+	path = node-homeseer
+	url = git@github.com:jhanssen/node-homeseer.git

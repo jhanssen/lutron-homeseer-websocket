@@ -10,4 +10,7 @@
     "caseta",
     "homeseer"
   ],
+  "dependencies": {
+    "ws": ""
+  }
 }
