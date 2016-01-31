@@ -12,5 +12,8 @@
   ],
   "dependencies": {
     "ws": ""
+  },
+  "scripts": {
+    "start": "node ./index.js"
   }
 }
