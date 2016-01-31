@@ -163,6 +163,8 @@ function addDevice(dev)
         var cidx = val.device.id.lastIndexOf(":");
         if (cidx !== -1) {
             var cid = parseInt(val.device.id.substr(cidx + 1));
+            if (deviceValues[cid] === val.value)
+                return;
             var cdev = devices[cid];
             var funcs = functions[cdev.type];
             funcs.set(cid, val.value);
