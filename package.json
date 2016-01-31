@@ -1,0 +1,16 @@
+{
+  "name": "caseta-homeseer-websocket",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">4.0.0"
+  },
+  "keywords": [
+    "lutron",
+    "caseta",
+    "homeseer"
+  ],
+  "dependencies": {
+    "faye-websocket": "*"
+  }
+}
