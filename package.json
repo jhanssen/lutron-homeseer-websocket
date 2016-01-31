@@ -10,7 +10,4 @@
     "caseta",
     "homeseer"
   ],
-  "dependencies": {
-    "faye-websocket": "*"
-  }
 }
