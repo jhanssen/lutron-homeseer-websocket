@@ -3,8 +3,7 @@ var hsclasses = require("./node-homeseer/src/hs-classes.js");
 var Device = hsclasses.Device;
 
 var functions = {
-    create: function(integrationid, devices) {
-        var cd = devices[integrationid];
+    create: function(integrationid, cd) {
         var hd = {
             name: cd.name,
             location: cd.room,

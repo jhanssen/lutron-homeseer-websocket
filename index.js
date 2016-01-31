@@ -29,7 +29,7 @@ function createDevices() {
     var devs = [];
     for (var devid in devices) {
         var f = functions[devices[devid].type];
-        var data = f.create(devid, devices);
+        var data = f.create(devid, devices[devid]);
         if (data !== undefined)
             devs.push(data);
     }
