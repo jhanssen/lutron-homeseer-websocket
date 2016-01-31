@@ -41,8 +41,19 @@ function parseQueue() {
     var res;
 
     var clear = function(rx) {
-        queue = queue.substr(rx.lastIndex);
-        rx.lastIndex = 0;
+        if (rx instanceof Array) {
+            var max = 0;
+            for (var i = 0; i < rx.length; ++i) {
+                if (rx[i].lastIndex > max) {
+                    max = rx[i].lastIndex;
+                }
+                rx[i].lastIndex = 0;
+            }
+            queue = queue.substr(max);
+        } else {
+            queue = queue.substr(rx.lastIndex);
+            rx.lastIndex = 0;
+        }
     };
 
     while (queue.length > 0) {
@@ -68,12 +79,16 @@ function parseQueue() {
             }
             break;
         case states.Ok:
+            var clears = [];
             if (promptrx.exec(queue)) {
                 callEventListener("ready");
-                clear(promptrx);
+                clears.push(promptrx);
             }
             if (check(outputrx)) {
-                clear(outputrx);
+                clears.push(outputrx);
+            }
+            if (clears.length > 0) {
+                clear(clears);
             } else {
                 return;
             }
