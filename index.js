@@ -26,6 +26,7 @@ var functions = {
                 location2: cd.floor,
                 type: "type",
                 address: "caseta:" + integrationid,
+                canDim: true,
                 pairs: [
                     {
                         status: {
@@ -34,7 +35,11 @@ var functions = {
                             control: Device.StatusControl.Status | Device.StatusControl.Control,
                             use: Device.Use.Off,
                             render: Device.Render.Button,
-                            includeValues: false
+                            includeValues: false,
+                            location: {
+                                row: 1,
+                                column: 1
+                            }
                         },
                         graphic: {
                             value: 0,
@@ -48,7 +53,11 @@ var functions = {
                             control: Device.StatusControl.Status | Device.StatusControl.Control,
                             use: Device.Use.On,
                             render: Device.Render.Button,
-                            includeValues: false
+                            includeValues: false,
+                            location: {
+                                row: 1,
+                                column: 2
+                            }
                         },
                         graphic: {
                             value: 100,
@@ -65,7 +74,12 @@ var functions = {
                             control: Device.StatusControl.Status | Device.StatusControl.Control,
                             use: Device.Use.Dim,
                             render: Device.Render.ValuesRangeSlider,
-                            includeValues: true
+                            includeValues: true,
+                            location: {
+                                row: 2,
+                                column: 1,
+                                span: 2
+                            }
                         },
                         graphic: [
                             {
