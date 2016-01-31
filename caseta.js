@@ -92,6 +92,7 @@ function parseQueue() {
             } else {
                 return;
             }
+            break;
         }
     }
 }
