@@ -4,7 +4,6 @@ var hsclasses = require("./node-homeseer/src/hs-classes.js");
 var Device = hsclasses.Device;
 var homeseerHost = "pi.nine.ms:8087";
 var hs = new hsclasses.Homeseer("ws://" + homeseerHost + "/homeseer");
-var hsOpen = false;
 var caseta = require("./caseta.js");
 var deviceValues = undefined;
 var devices = {
@@ -197,8 +196,7 @@ function queryDevices() {
         f.on(devid, "value", function(devid, value) {
             console.log("device value", devid, value);
             deviceValues[devid] = value;
-            if (hsOpen)
-                updateDevice(devid, value);
+            updateDevice(devid, value);
         });
         f.query(devid);
     }
@@ -206,7 +204,6 @@ function queryDevices() {
 
 hs.on("ready", function() {
     console.log("hs ready");
-    hsOpen = true;
     createDevices();
 });
 hs.on("request", function(req) {
